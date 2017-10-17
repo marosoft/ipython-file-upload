@@ -39,7 +39,7 @@ define([
             }
     
             // of to the next chunk
-            window.setTimeout(() => chunkReaderBlock(offset, chunkSize, file), 100);
+            window.setTimeout(() => chunkReaderBlock(offset, chunkSize, file), 250);
         }
     
         chunkReaderBlock = function(_offset, length, _file) {
@@ -64,7 +64,7 @@ define([
             return;
         }
         // Condition finally met. callback() can be executed.
-        window.setTimeout(() => callback(), 150);
+        window.setTimeout(() => callback(), 500);
     };
 
     var FileUploadView = widgets.DOMWidgetView.extend({
