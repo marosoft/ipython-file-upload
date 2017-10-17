@@ -34,8 +34,19 @@ Usage
     import io
     from IPython.display import display
     import fileupload
+    
 
     def _upload():
+
+        _progress_widget = widgets.IntProgress(
+            value=0,
+            min=0,
+            max=100,
+            step=1,
+            description='Uploading:',
+            bar_style='', # 'success', 'info', 'warning', 'danger' or ''
+            orientation='horizontal'
+        )
 
         _upload_widget = fileupload.FileUploadWidget()
 
