@@ -44,8 +44,15 @@ Usage
             filename = change['owner'].filename
             print('Uploaded `{}` ({:.2f} kB)'.format(
                 filename, len(decoded.read()) / 2 **10))
+                
+        def _cb_progress(change):
+            #print('upload progress: ' + change['owner'].progress)
+            if _progress_widget.value == 0:
+                display(_progress_widget)
+            _progress_widget.value = int(float(change['owner'].progress))
 
-        _upload_widget.observe(_cb, names='data')
+        _upload_widget.observe(_cb, names='data')    
+        _upload_widget.observe(_cb_progress, names='progress')
         display(_upload_widget)
 
     _upload()
