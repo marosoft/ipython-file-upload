@@ -34,6 +34,7 @@ Usage
     import io
     from IPython.display import display
     import fileupload
+    import ipywidgets as widgets 
     
 
     def _upload():
