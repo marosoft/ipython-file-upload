@@ -25,7 +25,7 @@ define([
             offset += chunkSize;
 
             if (evt.target.error == null) {
-                console.log("Chunk: ", chunkSize, evt.target.result.length);
+                //console.log("Chunk: ", chunkSize, evt.target.result.length);
                 callback(evt.target.result); // callback for handling read chunk
             } else {
                 console.log("Read error: " + evt.target.error);
@@ -107,8 +107,8 @@ define([
 
             if (file) {
                 var a = parseFile(file, chunkSize, (data) => {
-                    console.log("Sending a chunk");
                     chunks++;
+                    console.log("Sending a chunk", chunks, totalChunks);
                     that.model.set('progress', ((chunks/totalChunks)*100).toFixed(0) );
                     that.model.set('data_chunk', data);
                     that.touch(); 
